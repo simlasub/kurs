@@ -1,0 +1,15 @@
+0.	install nodejs and npm
+0.1	sudo apt-get install nodejs npm
+0.2	sudo npm install -g npm@latest
+
+1.	mit npm create kann ein neues Projekt angelegt werden.
+1.1	als entry point index.js auswählen
+
+2.	install required packages: express and ws
+2.1	npm install ws express --save
+
+3.	erstelle das Program
+3.1	touch index.js
+
+4	starte das Program
+4.1	nodejs index.js

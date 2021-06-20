@@ -1,0 +1,9 @@
+1.	create public folder
+1.1	mkdir public
+1.2	touch public/index.html
+
+2.	simple example with just html file
+
+3.	example with css and javascript
+3.1	touch public/style.css
+3.2	touch public/index.js
