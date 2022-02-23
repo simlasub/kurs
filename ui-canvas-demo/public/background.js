@@ -1,3 +1,7 @@
+function initializeBackground(){
+	
+}
+
 // render the background will be replaced with video stream
 function renderBackground(){
 	//clearCanvas(b);

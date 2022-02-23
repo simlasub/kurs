@@ -1,5 +1,5 @@
 var vhSize = [700,700]; // size of the virtual horizon
-
+var vhOffset;
 
 // intitializes the virtual horizon
 function initializeVirtualHorizon(){
@@ -8,18 +8,18 @@ function initializeVirtualHorizon(){
 	vh.lineWidth = lineWidth;
 	vh.font = font;
 
-	vhSize = [dim[0] * 0.8,dim[1] * 0.8]
+	vhSize = [dim[0]*0.7 - 160,dim[1] * 0.8]
+	vhOffset = [dim[0]/2-vhSize[0]/2, dim[1]/2-vhSize[1]/2];
 }
 
 // renders the virtual horizon, the movement direction indicator and the paralles
 function renderVirtualHorizon(){
 	// set parameters
-	const offset = [dim[0]/2-vhSize[0]/2, dim[1]/2-vhSize[1]/2];
 	const centerSpacing = 30; // only half
 	const parallelDistance = 5; // in degrees
 	const parallelLength = 200; // from center
 	const clip = true;
-	const framed = true;
+	const framed = false;
 
 	// delete previous frame
 	vh.setTransform(1, 0, 0, 1, 0, 0);
@@ -29,8 +29,8 @@ function renderVirtualHorizon(){
 	// Clip a rectangular area for virtual horizon
 	if(clip){	// for debug purposes
 		//vh.beginPath();
-		vh.rect(offset[0],offset[1], vhSize[0], vhSize[1]);
-		//vh.stroke();
+		vh.rect(vhOffset[0],vhOffset[1], vhSize[0], vhSize[1]);
+		if(framed){vh.stroke();}
 		vh.clip();
 	}
 

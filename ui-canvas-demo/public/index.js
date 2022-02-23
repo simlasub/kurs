@@ -1,16 +1,16 @@
 // global variable
 const dim = [1920,1080];
-const colors = ["#e88300", "#e80000"];
-const lineWidth = 2;
+const colors = ["#e88300", "#006198","#e80000"];
+const lineWidth = 1.3;
 const fontSize = 25;
 const font = fontSize + "px sans-serif";
 
 var pixelPerDegree = 20;
 
-var b,vh; // for canvas elements
+var b,vh,dep; // for canvas elements
 
 var roll = pitch = heading = 0;
-var xSpeed = ySpeed = zSpeed = 0;
+var xSpeed = ySpeed = zSpeed = vSpeed = 0;
 var depth = 0;
 var mode = "disarmed";
 var armed = false;
@@ -25,16 +25,13 @@ function onStart(){
 	// get canvas elements from html
 	b = document.getElementById("background").getContext("2d");
 	vh = document.getElementById("virtualHorizon").getContext("2d");
+	dep = document.getElementById("depth").getContext("2d");
 
 	window.addEventListener('resize', onResize);
 	onResize();
 
-	// render background
-	renderBackground();
-
-	// render virtual Horizon
-	initializeVirtualHorizon();
-	renderVirtualHorizon();
+	// render all
+	initializeAll();
 
 	// start Animation
 	startAnimation();
@@ -42,7 +39,7 @@ function onStart(){
 
 // called on a window resize
 function onResize(){
-	console.log("window resized");
+	//console.log("window resized");
 
 	// get window resolution
 	dim[0] = window.innerWidth;
@@ -58,8 +55,23 @@ function onResize(){
 	background.width = dim[0];
 	virtualHorizon.height = dim[1];
 
+	// recalculate
+	pixelPerDegree = dim[0]/90;
+
 	// redraw canvas
-	renderBackground();
+	initializeAll();
+}
+
+function initializeAll(){
+	initializeBackground();
 	initializeVirtualHorizon();
+	initializeDepth();
+
+	renderAll();	
+}
+
+function renderAll(){
+	renderBackground();
 	renderVirtualHorizon();
+	renderDepth();
 }
