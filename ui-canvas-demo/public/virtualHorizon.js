@@ -1,4 +1,4 @@
-const vhSize = [700,700]; // size of the virtual horizon
+var vhSize = [700,700]; // size of the virtual horizon
 
 
 // intitializes the virtual horizon
@@ -7,6 +7,8 @@ function initializeVirtualHorizon(){
 	vh.fillStyle = colors[0];
 	vh.lineWidth = lineWidth;
 	vh.font = font;
+
+	vhSize = [dim[0] * 0.8,dim[1] * 0.8]
 }
 
 // renders the virtual horizon, the movement direction indicator and the paralles
