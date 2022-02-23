@@ -9,7 +9,7 @@ var app = express(); // create express app
 app.use(express.static(__dirname + "/public"));
 console.log("public folder set to: " + __dirname + "/public");
 app.listen(8080, ()=>{
-	console.log("webserver started on port 8080");
+	console.log("webserver started on http://localhost:8080");
 });
 
 
