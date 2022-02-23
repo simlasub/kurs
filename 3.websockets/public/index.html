@@ -9,19 +9,30 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<header>
 	<h1>Websocket test</h1>
-	<input id="ip" value="0.0.0.0">
-	<button onclick="ws_connect()">Connect</button>
-	<button onclick="ws_disconnect()">Disconnect</button>
+</header>
+
+<body>
+	<div class="flex">
+	<div class="box">
+		<label for="ip">IP-Address: </label>
+		<br>
+		<input id="ip" value="0.0.0.0">
+		<br>
+		<button onclick="ws_connect()">Connect</button>
+		<button onclick="ws_disconnect()">Disconnect</button>
+	</div>
 	<br>
-	<br>
-	<input id="msg">
-	<button onclick="send_OnClick()">send</button>
-	<br>
-	<br>
-	<label for="response">last received: </label>
-	<p id="response">NA</p>
+	<div class="box">
+		<input id="msg"><br>
+		<button onclick="send_OnClick()">send</button>
+		<br>
+		<br>
+		<label for="response">last received: </label>
+		<p id="response">NA</p>
+	</div>
+	</div>
 </body>
 
 </html>

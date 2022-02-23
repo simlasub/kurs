@@ -11,6 +11,11 @@ header {
 }
 
 body {
+	justify-content: center;
+	text-align: center;
+}
+
+.flex{
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
@@ -32,10 +37,16 @@ body {
 	justify-content: center;
 }
 
+
+input{
+	margin: 5px;
+	width: clamp(5em, 90%,20em);
+}
+
 button{	
 	margin: 5px;
 	min-height: 32px;
-	width: clamp(5em, 45%,20vw);
+	width: clamp(5em, 45%, 12em);
 
 	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 	text-decoration: none;
@@ -60,4 +71,4 @@ button:hover{
 
 button:active {
 	transform: scale(0.95);
-  }
+}

@@ -4,24 +4,27 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>test</title>
+	<title>2.Lektion</title>
 	<script src="index.js"></script>
 	<link rel="stylesheet" href="style.css">
 </head>
 
 <header>
-	<h1>Dies ist ein Test</h1>
+	<h1>HTML, CSS, JS - Beispiel</h1>
 </header>
 
 <body>
-	<p class="box">test</p>
+<div class="flex">
 	<div class="box">
-		<h1>Button Test</h1><br>
-		dies ist ein text<br>
-		<button class="center"></button>
-		<button class="center">Button with<br>linebrake</button>
+		<h2>Button</h2>
+		<button class="center" onclick="button_onClick()">Button with<br>linebrake</button>
 	</div>
-
+	<div class="box">
+		<h2>Counter</h2>
+		<label for="count">Anzahl: </label>
+		<p id="count">0</p>
+	</div>
+</div>
 </body>
 
 </html>
