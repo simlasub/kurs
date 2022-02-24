@@ -16,7 +16,7 @@ function renderDepth(){
 	const offset = [ vhOffset[0]+vhSize[0], vhOffset[1] ];
 	const framed = false;
 	const vSpeedScale = depthSize[1]/1;
-	const vSpeedScaleLength = 10;
+	const vSpeedScaleLength = 8;
 	const vSpeedIndicator = 15;
 	const depthScale = depthSize[1]/8;
 	const depthScaleLength = 20;
@@ -32,12 +32,9 @@ function renderDepth(){
 	dep.stroke();
 
 	// draw vSpeed scale
-	dep.beginPath();
-	dep.moveTo(offset[0], offset[1] + depthSize[1]/2);
-	dep.lineTo(offset[0]-vSpeedIndicator, offset[1] + depthSize[1]/2);
-	dep.stroke();
+	// small strokes
 	var i = 0;
-	while(i*vSpeedScale < depthSize[1]/2){
+	while(i*vSpeedScale <= depthSize[1]/2){
 		dep.beginPath();
 		dep.moveTo(offset[0], offset[1] + depthSize[1]/2 + i*vSpeedScale);
 		dep.lineTo(offset[0]-vSpeedScaleLength, offset[1] + depthSize[1]/2 + i*vSpeedScale);
@@ -48,6 +45,19 @@ function renderDepth(){
 		dep.stroke();
 		i += 0.1;
 	}
+	// main Strokes
+	var i = 0;
+	while(i*vSpeedScale <= depthSize[1]/2){
+		dep.beginPath();
+		dep.moveTo(offset[0], offset[1] + depthSize[1]/2 + i*vSpeedScale);
+		dep.lineTo(offset[0]-vSpeedIndicator, offset[1] + depthSize[1]/2 + i*vSpeedScale);
+		dep.stroke();
+		dep.beginPath();
+		dep.moveTo(offset[0], offset[1] + depthSize[1]/2 - i*vSpeedScale);
+		dep.lineTo(offset[0]-vSpeedIndicator, offset[1] + depthSize[1]/2 - i*vSpeedScale);
+		dep.stroke();
+		i += 0.5
+	}
 	// draw vSpeed Indicator
 	dep.beginPath();
 	dep.moveTo(offset[0], offset[1] + depthSize[1]/2 + vSpeed*vSpeedScale);
@@ -56,7 +66,7 @@ function renderDepth(){
 	dep.fill();
 	// draw vSpeed Text
 	dep.textAlign = "right";
-	dep.fillText(vSpeed.toFixed(2), offset[0]+depthSize[0], offset[1] + depthSize[1] +fontSize -6, depthSize[0]);
+	dep.fillText(vSpeed.toFixed(2), offset[0]+depthSize[0], offset[1] -6, depthSize[0]);
 
 	// depth Lines
 	var i = depth%1;

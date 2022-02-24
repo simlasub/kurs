@@ -1,5 +1,5 @@
 // global variable
-const dim = [1920,1080];
+var dim = [1920,1080];
 const colors = ["#e88300", "#006198","#e80000"];
 const lineWidth = 1.3;
 const fontSize = 25;
