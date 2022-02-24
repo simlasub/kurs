@@ -1,10 +1,9 @@
-# SIMLASUB Javascript Kurs
+# SIMLASUB Programmierkurs
 
-In diesem Kurs wird eine Einführung in Javascript gegeben.
-Außerdem werden HTML und CSS besprochen um einfache Webseiten zu gestalten.\
-Als Server wird Nodejs unter Linux oder WSL verwendet.
-Zur schnellen Kommunikation zwischen Client und Server werden Websockets verwendet.\
-Als Beispielprojekt wird eine Steueroberfläche für das SIMLASUB entwickelt.
+In diesem Kurs werden an dem Beispiel der [SIMLASUB-UI](https://github.com/simlasub/simlasub-ui) die wichtigsten Programmiergrundlagen beigebracht.\
+Dabei wird in Javascript eine asynchrone Webseite programmiert und in NodeJs der entsprechende Server.\
+Für den Datenaustausch werden Websockets verwendet. Für den Videostream WebRTC.\
+Nebenbei wird Git und VSCode eingeführt.
 
 Inhalt:
 
