@@ -22,7 +22,7 @@ function renderAnimation(){
 	depth = 0.8 + Math.sin(time * 0.3);
 	vSpeed = 0.3 *Math.cos(time * 0.3);
 
-	console.time("rendering");
+	//console.time("rendering");
 	renderAll();
-	console.timeEnd("rendering");
+	//console.timeEnd("rendering");
 }

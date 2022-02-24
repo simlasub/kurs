@@ -7,7 +7,7 @@ const font = fontSize + "px sans-serif";
 
 var pixelPerDegree = 20;
 
-var b,vh,dep; // for canvas elements
+var b, c, vh; // for canvas elements
 
 var roll = pitch = heading = 0;
 var xSpeed = ySpeed = zSpeed = vSpeed = 0;
@@ -24,8 +24,8 @@ var lastError = "NO ERROR";
 function onStart(){
 	// get canvas elements from html
 	b = document.getElementById("background").getContext("2d");
+	c = document.getElementById("canvas").getContext("2d");
 	vh = document.getElementById("virtualHorizon").getContext("2d");
-	dep = document.getElementById("depth").getContext("2d");
 
 	window.addEventListener('resize', onResize);
 	onResize();
@@ -47,12 +47,15 @@ function onResize(){
 	
 	// get canvas elements
 	var background = document.getElementById("background");
+	var canvas = document.getElementById("canvas");
 	var virtualHorizon = document.getElementById("virtualHorizon");
 
 	// update canvas resolution
 	background.width = dim[0];
-	virtualHorizon.height = dim[1];
-	background.width = dim[0];
+	background.height = dim[1];
+	canvas.width = dim[0];
+	canvas.height = dim[1];
+	virtualHorizon.width = dim[0];
 	virtualHorizon.height = dim[1];
 
 	// recalculate
