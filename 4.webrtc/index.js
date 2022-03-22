@@ -18,13 +18,23 @@ app.listen(8080, ()=>{
 });
 
 // setup websocketserver
+var lastMessage = "";
+
 wss.on("connection", function connection(ws) {
     console.log("Client connected");
  
+	//ws.send(lastMessage);
+
     ws.on("message", function incoming(data) {
         console.log("New Message: " + data);
-        // echo data back
-        ws.send(data);
+		
+		// broadcast message
+		wss.clients.forEach((client)=>{
+			if(client.readyState === WebSocket.OPEN) {
+				client.send(data);
+				lastMessage = data;
+			  }
+		});
     });
 
     ws.on("close", function close() {
@@ -32,6 +42,5 @@ wss.on("connection", function connection(ws) {
     });
  
 });
-
 
 
